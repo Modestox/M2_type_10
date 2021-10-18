@@ -1,0 +1,25 @@
+<?php
+/** @var \Sergey\CustomerStatusViewModel\Header\Customerstatus $block */
+?>
+<?php $viewModel = $block->getData('viewModel') ?>
+<?php if ($viewModel->getCustomerStatus()): ?>
+    <li class="customer-status" data-bind="scope: 'customerstatusComponent'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </li>
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customerstatusComponent": {
+                        "component": "Sergey_CustomerStatus/js/customerstatus",
+                        "config": {
+                            "template": "Sergey_CustomerStatus/customerstatus"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

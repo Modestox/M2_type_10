@@ -1,0 +1,22 @@
+<?php
+/** @var \Sergey\CustomerStatus\Block\Index\Index $block */
+?>
+<form class="form form-status" action="<?= $block->escapeUrl($block->getAction()) ?>" method="post" id="form-validate">
+    <fieldset class="fieldset">
+        <?= $block->getBlockHtml('formkey') ?>
+        <legend class="legend"><span><?= $block->escapeHtml(__('Status Information')) ?></span></legend><br>
+
+        <label class="label" for="customer_status"><span><?= $block->escapeHtml('Customer status') ?></span></label>
+        <div class="control">
+            <input type="text" id="customer_status"
+                   name="customer_status"
+                   class="input-text" 
+                   value="<?= $block->getCustomerStatus(); ?>"
+                   maxlength="255">
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary"><button type="submit" title="<?= $block->escapeHtmlAttr(__('Save')) ?>" class="action save primary"><span><?= $block->escapeHtml(__('Save')) ?></span></button></div>
+        <div class="secondary"><a class="action back" href="<?= $block->escapeUrl($block->getBackUrl()) ?>"><span><?= $block->escapeHtml(__('Back')) ?></span></a></div>
+    </div>
+</form>
